@@ -3,7 +3,7 @@ import csv
 from os import write
 from datetime import datetime
 
-open_file = open("sitka_weather_2018_simple.csv", "r")
+open_file = open("death_valley_2018_simple.csv", "r")
 
 csv_file = csv.reader(open_file,delimiter=",")
 
@@ -14,10 +14,7 @@ print(type(header_row))
 for index, column_header in enumerate(header_row):
     print(index, column_header)
 
-    #testing to convert date from string
-mydate = datetime.strptime('2018-07-01', '%Y-%m-%d')
 
-print(mydate)
 
 dates = []
 
@@ -31,14 +28,24 @@ lows = []
 
 #x stands for rows in the csv
 for x in csv_file:
-    highs.append(int(x[5]))
-    the_date = datetime.strptime((x[2]), '%Y-%m-%d')
-    dates.append(the_date)
-    lows.append(int(x[6]))
+    try:
+        the_date = datetime.strptime((x[2]), '%Y-%m-%d')
+        high = int(x[4],)
+        low = int(x[5])
+    except ValueError:
+        print(f"Missing data for {the_date}")
+    else:
+        highs.append(int(x[4]))
+        lows.append(int(x[5]))
+        dates.append(the_date)
+
+  
 
 #print(highs)
 #print(dates)
-print(lows)
+#print(lows)
+
+'''
 
 fig = plt.figure()
 
@@ -69,3 +76,4 @@ plt.title("Lows")
 plt.suptitle("Highs and Lows of Sitka, Alaska")
 
 plt.show()
+'''
