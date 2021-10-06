@@ -45,7 +45,7 @@ for x in csv_file:
 #print(dates)
 #print(lows)
 
-'''
+
 
 fig = plt.figure()
 
@@ -76,4 +76,3 @@ plt.title("Lows")
 plt.suptitle("Highs and Lows of Sitka, Alaska")
 
 plt.show()
-'''

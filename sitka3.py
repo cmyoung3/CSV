@@ -57,7 +57,7 @@ fig.autofmt_xdate()
 
 plt.show()
 
-
+#(2,1,1) 2 rows, 1 column, 1 index
 plt.subplot(2,1,1)
 plt.plot(dates,highs,c="red")
 plt.title("Highs")
